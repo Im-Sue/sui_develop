@@ -100,7 +100,7 @@ async function transfer(pool: Pool | undefined, amount: number) {
                 // swap_partner: partner,
             },
         )
-        swapPayload.setGasBudget(100000000); // 设置一个较大的预算
+        // swapPayload.setGasBudget(100000000); // 设置一个较大的预算
         const transferTxn = await sdk.fullClient.sendTransaction(signer, swapPayload)
         console.log('兑换结果返回::', JSON.stringify(transferTxn))
         if (transferTxn && transferTxn.effects && transferTxn.effects.status.status == "success"){
@@ -155,8 +155,6 @@ async function main() {
             console.log(`输入金额为: ${amount}`);
             (async () => {
                await transfer(pool, amount)
-                console.log("\n")
-                console.log("\n")
                 console.log("\n")
                 console.log("\n")
                await main(); // 重新提示用户输入
