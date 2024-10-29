@@ -57,7 +57,7 @@ async function moneyTransfer(recipient: string, coinIds: string[], amount: numbe
         return tx.object(coinId)
     });
 
-    const [newCoinObject] = tx.splitCoins(tx.gas, [amount]);
+    const [newCoinObject] = tx.splitCoins(coidObArr[0], [amount]);
     tx.transferObjects([newCoinObject], recipient); // 支持一次性转移多个对象
 
     try {
